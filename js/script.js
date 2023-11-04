@@ -50,7 +50,7 @@ function getRandomQuote() {
     return quotes[getQuote];
     };   
 
- let colors = ["pink", "purple", "green"];   
+ let colors = ["fuchsia", "purple", "red"];   
 
 function randomColor() {
     let newColor = Math.floor(Math.random() * colors.length);
@@ -59,12 +59,12 @@ function randomColor() {
 function changeColor() {
     document.body.style.backgroundColor = randomColor(); 
 };
-setInterval(changeColor, 5000);
+setInterval(changeColor, 2000);
 
 
 
 /***
- * `printQuote` function
+ * `printQuote` function and set an interval to change quote
 ***/
 function printQuote() {
     let randomQuote = getRandomQuote();
@@ -78,7 +78,7 @@ function printQuote() {
         html += `<span class="tags">` + ", " + randomQuote.tags + '</span>';
     } html += '</p>';
     document.getElementById('quote-box').innerHTML = html; 
-};
+}; setInterval(printQuote, 10000);
 
 
 
