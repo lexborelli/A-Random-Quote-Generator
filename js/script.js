@@ -9,28 +9,33 @@ project 1 - A Random Quote Generator
 let quotes = [
     {
         quote: "Change your thoughts, and you change your world.",
-        source: "Norman Vincent"
+        source: "Norman Vincent",
+        tags: "A Quote for inspiration and Successs"
     }, 
     {
         quote: "It always seems impossible until it's done.",
         source: "Nelson Mandela",
-        year: 2001
+        year: 2001,
+        tags: "A Quote for Determination and Success"
     },
     {
         quote: "To live is the rarest thing in the world. Most people just exist.",
         source: "Oscar Wilde",
         citation: "The Soul of Man Under Socialism",
-        year: 1891
+        year: 1891,
+        tags: "A Quote for inspiration"
     },
     {
         quote: "It is never too late to be what you might have been.",
         source: "George Eliot",
         citation: "The Spanish Gypsy",
-        year: 1983
+        year: 1983,
+        tags: "A Quote about change"
     }, 
     {
         quote: "Doubt kills more dreams than failure ever will.",
-        source: "Suzy Kassem"
+        source: "Suzy Kassem",
+        tags: "A Quote for Courage"
     }
 ];
 
@@ -45,7 +50,16 @@ function getRandomQuote() {
     return quotes[getQuote];
     };   
 
+ let colors = ["pink", "purple", "green"];   
 
+function randomColor() {
+    let newColor = Math.floor(Math.random() * colors.length);
+    return colors[newColor];
+}; 
+function changeColor() {
+    document.body.style.backgroundColor = randomColor(); 
+};
+setInterval(changeColor, 5000);
 
 
 
@@ -60,9 +74,12 @@ function printQuote() {
         html += `<span class="citation">` + randomQuote.citation + '</span>';
     } if(randomQuote.year) {
         html += `<span class="year">` + randomQuote.year + '</span>';
+    } if(randomQuote.tags) {
+        html += `<span class="tags">` + ", " + randomQuote.tags + '</span>';
     } html += '</p>';
     document.getElementById('quote-box').innerHTML = html; 
 };
+
 
 
 /***
