@@ -50,6 +50,8 @@ function getRandomQuote() {
     return quotes[getQuote];
     };   
 
+/***Color function, changed the color every 2 seconds ***/
+
  let colors = ["fuchsia", "purple", "red"];   
 
 function randomColor() {
