@@ -4,7 +4,7 @@ project 1 - A Random Quote Generator
 ******************************************/
 
 /*** 
- * `quotes` array 
+ * `quotes` array. Listed 5 random quotes with source, tags, citation, and year. 
 ***/
 let quotes = [
     {
@@ -41,7 +41,8 @@ let quotes = [
 
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` function. In the function body, I created a variable to store a random number ranging from zero to the index of the last item in the quotes array. The function returns a random quote object. Utilizing the random number created previously to access that index in the quotes array using bracket notation.
+The getRandomQuote function creates a random number, and use that random number to return a random quote object from the quotes array.
 ***/
 
 function getRandomQuote() {
@@ -50,7 +51,7 @@ function getRandomQuote() {
     return quotes[getQuote];
     };   
 
-/***Color function, changed the color every 2 seconds ***/
+/***Color function, changes the background color to a new color, I utilized the math random to provide a random number between the 3 colors provided in the colors array. ***/
 
  let colors = ["fuchsia", "purple", "red"];   
 
@@ -58,15 +59,13 @@ function randomColor() {
     let newColor = Math.floor(Math.random() * colors.length);
     return colors[newColor];
 }; 
-function changeColor() {
-    document.body.style.backgroundColor = randomColor(); 
-};
-setInterval(changeColor, 2000);
+
 
 
 
 /***
- * `printQuote` function and set an interval to change quote
+ * `printQuote` function, This function is used to perform three tasks: call the getRandomQuote function, used the returned quote object to build a string of HTML and quote properties, then use that string to display a random quote in the browser.
+I created two if statements if the quotes contained a citation, tags, and year. Created a timing function with the setInterval() method to print a new quote and background color to the page at regular intervals, like every 10 seconds.
 ***/
 function printQuote() {
     let randomQuote = getRandomQuote();
@@ -80,12 +79,14 @@ function printQuote() {
         html += `<span class="tags">` + ", " + randomQuote.tags + '</span>';
     } html += '</p>';
     document.getElementById('quote-box').innerHTML = html; 
+    document.body.style.backgroundColor = randomColor(); 
+
 }; setInterval(printQuote, 10000);
 
 
 
 /***
- * click event listener for the print quote button
+ * click event listener for the print quote button. the function displays a new quote each time the user clicks the "Show another quote" button using a printQuote function.
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
